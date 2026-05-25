@@ -22,7 +22,7 @@ body{
 @keyframes glow{
     0%, 100%{
         color: #fff;
-        text-shadow: 0 0 12px #00ff99, 0 0 50px #00ff99, 0 0 100px #00ff99;
+        text-shadow: 0 0 12px #9400d3, 0 0 50px #9400d3, 0 0 100px #9400d3;
     }
     10%, 90%{
         color: #696565;
@@ -40,6 +40,42 @@ body{
 }
 .greetings > span:nth-child(5){
     animation-delay: .8s;
+}
+.greetings > span:nth-child(6){
+    animation-delay: 1s;
+}
+.greetings > span:nth-child(7){
+    animation-delay: 1.2s;
+}
+.greetings > span:nth-child(8){
+    animation-delay: 1.4s;
+}
+.greetings > span:nth-child(9){
+    animation-delay: 1.6s;
+}
+.greetings > span:nth-child(10){
+    animation-delay: 1.8s;
+}
+.greetings > span:nth-child(11){
+    animation-delay: 2s;
+}
+.greetings > span:nth-child(12){
+    animation-delay: 2.2s;
+}
+.greetings > span:nth-child(13){
+    animation-delay: 2.4s;
+}
+.greetings > span:nth-child(14){
+    animation-delay: 2.6s;
+}
+.greetings > span:nth-child(15){
+    animation-delay: 2.8s;
+}
+.greetings > span:nth-child(16){
+    animation-delay: 3s;
+}
+.greetings > span:nth-child(17){
+    animation-delay: 3.2s;
 }
 
 .description{
@@ -70,12 +106,12 @@ body{
 }
 
 .description{
-    color: #00ffa6;
+    color: #cc66ff;
 }
 
 /* Estilo para el botón */
 .button button {
-    background-color: rgb(0, 255, 170); /* Fondo amarillo */
+    background-color: #9400d3; /* Fondo púrpura */
     border: none; /* Sin bordes */
     padding: 10px 20px; /* Ajusta el relleno según tu preferencia */
     font-size: 18px; /* Tamaño de fuente */
@@ -83,6 +119,7 @@ body{
     position: relative; /* Necesario para el resplandor */
     border-radius: 20px; /* Esquinas redondeadas */
     transition: background-color 0.3s ease-in-out; /* Transición suave para el color de fondo */
+    color: white;
   }
   
   /* Estilo para el enlace dentro del botón */
@@ -93,8 +130,8 @@ body{
   
   /* Efecto de resplandor al pasar el cursor sobre el botón */
   .button button:hover {
-    background-color: rgb(0, 255, 179); /* Cambia el color de fondo al pasar el mouse a naranja */
-    box-shadow: 0 0 10px rgb(255, 94, 0), 0 0 20px rgb(0, 255, 179), 0 0 30px rgb(0, 255, 187); /* Efecto de resplandor amarillo */
+    background-color: #ab47bc; /* Cambia el color de fondo al pasar el mouse */
+    box-shadow: 0 0 10px #9400d3, 0 0 20px #9400d3, 0 0 30px #9400d3; /* Efecto de resplandor púrpura */
   }
   
   .img {
