@@ -8,13 +8,57 @@
       // PROTECCIÓN CONTRA COPIA
       document.addEventListener('contextmenu', e => {
         e.preventDefault();
-        alert('⚠️ Contenido protegido. No está permitido hacer clic derecho.');
+        mostrarToast('Contenido protegido. No está permitido hacer clic derecho.');
       });
       document.addEventListener('keydown', e => {
         if (e.key === 'F12') { e.preventDefault(); return false; }
         if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C' || e.key === 'i' || e.key === 'j' || e.key === 'c')) { e.preventDefault(); return false; }
         if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's')) { e.preventDefault(); return false; }
       });
+
+      function mostrarToast(mensaje) {
+        let toast = document.getElementById('custom-toast');
+        if (!toast) {
+          toast = document.createElement('div');
+          toast.id = 'custom-toast';
+          toast.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          `;
+          document.body.appendChild(toast);
+        }
+        toast.innerHTML = `<span>🔒</span> <span>${mensaje}</span>`;
+        setTimeout(() => {
+          toast.style.transform = 'translateX(-50%) translateY(0)';
+          toast.style.opacity = '1';
+        }, 50);
+        if (toast.dataset.timeoutId) {
+          clearTimeout(parseInt(toast.dataset.timeoutId));
+        }
+        const timeoutId = setTimeout(() => {
+          toast.style.transform = 'translateX(-50%) translateY(100px)';
+          toast.style.opacity = '0';
+        }, 3000);
+        toast.dataset.timeoutId = timeoutId.toString();
+      }
 
       if (!window.location.pathname.endsWith('/') && !window.location.pathname.endsWith('.html')) {
         window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
