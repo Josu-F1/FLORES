@@ -1,3 +1,14 @@
+// PROTECCIÓN CONTRA COPIA
+document.addEventListener('contextmenu', e => {
+    e.preventDefault();
+    alert('⚠️ Contenido protegido. No está permitido hacer clic derecho.');
+});
+document.addEventListener('keydown', e => {
+    if (e.key === 'F12') { e.preventDefault(); return false; }
+    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C' || e.key === 'i' || e.key === 'j' || e.key === 'c')) { e.preventDefault(); return false; }
+    if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's')) { e.preventDefault(); return false; }
+});
+
 onload = () => {
     document.body.classList.remove("container");
 
