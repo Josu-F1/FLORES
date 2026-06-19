@@ -348,5 +348,51 @@
     <a href="../index.html#proyectos" style="position: fixed; top: 20px; left: 20px; z-index: 99999; display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); color: #ff6b9d; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.15); text-decoration: none; font-size: 1.5rem; transition: all 0.3s ease; border: 1px solid rgba(255, 107, 157, 0.2); font-family: sans-serif;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='#ff6b9d'; this.style.color='#fff';" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255, 255, 255, 0.95)'; this.style.color='#ff6b9d';">
         ←
     </a>
-  </body>
+
+    <!-- Modal Paywall de Compra -->
+    <div id="modalPaywall" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(15px); z-index: 100000; align-items: center; justify-content: center; padding: 20px;">
+        <div style="background: rgba(30, 41, 59, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; padding: 40px 30px; max-width: 480px; width: 100%; text-align: center; color: #fff; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform: scale(0.9); animation: modalAppear 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;">
+            <div style="font-size: 4rem; margin-bottom: 20px; animation: heartbeat 1.5s infinite;">💝</div>
+            <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; background: linear-gradient(135deg, #ff6b9d, #f67280); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">¿Te gustaría regalar este detalle?</h2>
+            <p style="font-family: 'Poppins', sans-serif; color: #94a3b8; font-size: 1rem; line-height: 1.6; margin-bottom: 30px;">
+                ¡Sorprende a esa persona especial con sus propias flores amarillas / azules interactivas personalizadas con su música favorita y mensajes de amor por solo <strong>$3 USD</strong>!
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="https://wa.me/593991963216?text=Hola!%20Me%20interesa%20comprar%20y%20personalizar%20el%20proyecto%20*Flores%20Azules%20de%20Amor*%20por%20$3%20💕" target="_blank" style="background: linear-gradient(135deg, #ff6b9d, #f67280); color: #fff; border: none; padding: 14px 28px; font-size: 1.1rem; font-weight: 700; border-radius: 50px; cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 10px 20px rgba(246, 114, 128, 0.3); transition: all 0.3s; font-family: 'Poppins', sans-serif;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 15px 25px rgba(246, 114, 128, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(246, 114, 128, 0.3)';">
+                    <i class="fab fa-whatsapp"></i> Personalizar Ahora ($3)
+                </a>
+                <button onclick="cerrarPaywall()" style="background: transparent; color: #64748b; border: none; padding: 10px; font-size: 0.95rem; cursor: pointer; font-weight: 500; text-decoration: underline; font-family: 'Poppins', sans-serif;" onmouseover="this.style.color='#94a3b8';" onmouseout="this.style.color='#64748b';">
+                    Seguir viendo demo
+                </button>
+            </div>
+        </div>
+    </div>
+    <style>
+    @keyframes modalAppear {
+        to { transform: scale(1); }
+    }
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    </style>
+
+    <script>
+        // Lanzar paywall después de 45 segundos
+        setTimeout(() => {
+            const paywall = document.getElementById('modalPaywall');
+            if (paywall) {
+                paywall.style.display = 'flex';
+            }
+        }, 45000);
+
+        function cerrarPaywall() {
+            const paywall = document.getElementById('modalPaywall');
+            if (paywall) {
+                paywall.style.display = 'none';
+            }
+        }
+    </script>
+</body>
 </html>
